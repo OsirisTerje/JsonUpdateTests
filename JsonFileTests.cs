@@ -64,6 +64,7 @@ public class JsonFileTests
         var usaUpdated = countriesUpdated.Single(o => o.Code == 1);
         Assert.That(usaUpdated.Population, Is.EqualTo(usa.Population));
         TestContext.WriteLine($"Population after update found to be {usaUpdated.Population}");
+        Assert.That(usaUpdated.Updated, Is.Not.EqualTo(countries!.Single(o => o.Code == 46).Updated));  // Check that Usa was updated, but not Norway
     }
 
 
