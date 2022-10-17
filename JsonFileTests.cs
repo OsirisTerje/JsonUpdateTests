@@ -48,6 +48,7 @@ public class JsonFileTests
         
         // Let us change the population of USA to 332,403,650 (2022 numbers)
         var usa = countries!.Single(o => o.Code == 1);  // Note that usa in this case is just a Reference to the element in the array, so when we change it on the next line, we're actually changing it IN the array too
+        TestContext.WriteLine($"Population read in found to be {usa.Population}");
         usa.Population = 332403650;
         
         // Write it back
@@ -61,6 +62,7 @@ public class JsonFileTests
         Assert.That(countriesUpdated!.Length,Is.EqualTo(countries!.Length),"Some record was added during this operation, it should not.....");
         var usaUpdated = countriesUpdated.Single(o => o.Code == 1);
         Assert.That(usaUpdated.Population, Is.EqualTo(usa.Population));
+        TestContext.WriteLine($"Population found to be {usaUpdated.Population}");
     }
 
 
