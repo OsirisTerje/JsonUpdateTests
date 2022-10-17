@@ -62,7 +62,7 @@ public class JsonFileTests
         Assert.That(countriesUpdated!.Length,Is.EqualTo(countries!.Length),"Some record was added during this operation, it should not.....");
         var usaUpdated = countriesUpdated.Single(o => o.Code == 1);
         Assert.That(usaUpdated.Population, Is.EqualTo(usa.Population));
-        TestContext.WriteLine($"Population found to be {usaUpdated.Population}");
+        TestContext.WriteLine($"Population after update found to be {usaUpdated.Population}");
     }
 
 
