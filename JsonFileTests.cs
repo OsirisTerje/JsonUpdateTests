@@ -50,6 +50,7 @@ public class JsonFileTests
         var usa = countries!.Single(o => o.Code == 1);  // Note that usa in this case is just a Reference to the element in the array, so when we change it on the next line, we're actually changing it IN the array too
         TestContext.WriteLine($"Population read in found to be {usa.Population}");
         usa.Population = 332403650;
+        usa.Updated = DateTime.Now;
         
         // Write it back
         var jsonOut = JsonSerializer.Serialize(countries);
